@@ -2,10 +2,11 @@ import Image from "next/image";
 import Logo from "../../../public/logo.svg"
 import LogoRocketseat from "../../../public/rocketseat.png"
 import { Badge } from "../badge";
+import { Profile } from "./profile";
 
 export function Navbar() {
   return (
-    <nav className="container">
+    <nav className="container flex items-center justify-between">
       <div className="flex gap-3 items-center">
         <div className="flex items-center gap-3">
           <Image src={Logo} alt="Logo Nivo" />
@@ -20,6 +21,8 @@ export function Navbar() {
           <Badge variant="primary">PRO</Badge>
         </div>
       </div>
+
+      <Profile />
     </nav>
   )
 }
