@@ -33,8 +33,8 @@ export function Profile() {
             variant="outline"
             className="p-0 border-none flex items-center gap-3 text-zinc-600 hover:text-zinc-600"
           >
-            <Avatar className="bg-zinc-100">
-              {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+            <Avatar className="bg-zinc-100 border-zinc-100 border-[1px]">
+              <AvatarImage src="https://github.com/miguel-leite-2000.png" alt="@shadcn" />
               <AvatarFallback>ML</AvatarFallback>
             </Avatar>
             <ChevronDown size={16} />
