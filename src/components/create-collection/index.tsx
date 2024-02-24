@@ -61,7 +61,7 @@ export function CreateCollection() {
   const [checkEveryone, setCheckEveryone] = useState<boolean>(false);
 
   const handleCheck = (id: string) => {
-    return checkEveryone && id !== "user";
+    return checkEveryone && id !== "users";
   };
 
   const handleCheckEveryone = () => {
@@ -120,12 +120,12 @@ export function CreateCollection() {
                 <div className="grid grid-cols-2 gap-5 mt-6">
                   <div className="flex items-center space-x-2">
                     <Checkbox
-                      id="user"
+                      id="users"
                       className="rounded text-zinc-800  checked:text-zinc-50 checked:bg-blue-500 checked:border-transparent"
                       onCheckedChange={handleCheckEveryone}
                     />
                     <Label
-                      htmlFor="user"
+                      htmlFor="users"
                       className={`flex items-center gap-2.5 text-sm text-zinc-50 font-medium ${
                         checkEveryone ? "text-zinc-300" : ""
                       }`}
