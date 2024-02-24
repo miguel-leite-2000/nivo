@@ -2,10 +2,10 @@ import { CreditCard } from "lucide-react";
 
 import { Activities } from "@/components/activities";
 import { Badge } from "@/components/badge";
-import { ButtonAdd } from "@/components/buttonAdd";
 import { Collection } from "@/components/collection";
 import { Navbar } from "@/components/navbar";
 import { Progress } from "@/components/ui/progress";
+import { CreateCollection } from "@/components/create-collection";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <div className="flex-1 flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <h1 className="text-xl text-zinc-50 font-bold">Collections</h1>
-            <ButtonAdd>Create collection</ButtonAdd>
+            <CreateCollection />
           </div>
 
           <div className="grid grid-cols-2 gap-5">
