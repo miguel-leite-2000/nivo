@@ -4,13 +4,14 @@ import LogoRocketseat from "../../../public/rocketseat.png"
 import { Badge } from "../badge";
 import { Profile } from "./profile";
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export function Navbar() {
   return (
     <nav className="container flex items-center justify-between">
       <div className="flex gap-3 items-center">
         <div className="flex items-center gap-3">
-          <Image src={Logo} alt="Logo Nivo" />
+          <Link href="/collections"><Image src={Logo} alt="Logo Nivo" /></Link>
           <Badge variant="secondary">BETA</Badge>
         </div>
         <span className="text-zinc-800">/</span>
@@ -22,7 +23,7 @@ export function Navbar() {
           <Badge variant="primary">PRO</Badge>
         </div>
         <span className="text-zinc-800 hidden">/</span>
-        <div className="flex hidden items-center gap-2 text-zinc-800">
+        <div className="flex items-center gap-2 text-zinc-800">
           <strong className="text-sm text-zinc-100">Ignite</strong>
           <ChevronDown size={14} />
         </div>

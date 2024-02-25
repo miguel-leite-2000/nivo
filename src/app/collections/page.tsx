@@ -27,6 +27,7 @@ export default function Collections() {
               storage={65}
               title="Ignite"
               user="Miguel Leite"
+              href="/uploads"
             />
             <Collection
               avatar="https://github.com/miguel-leite-2000.png"
@@ -35,6 +36,7 @@ export default function Collections() {
               storage={23}
               title="Explorer"
               user="Elias"
+              href="/uploads"
             />
             <Collection
               avatar="https://github.com/miguel-leite-2000.png"
@@ -43,6 +45,7 @@ export default function Collections() {
               storage={56}
               title="Digital House"
               user="Sebastian"
+              href="/uploads"
             />
             <Collection
               avatar="https://github.com/miguel-leite-2000.png"
@@ -51,6 +54,7 @@ export default function Collections() {
               storage={42}
               title="Events"
               user="Vinicius"
+              href="/uploads"
             />
           </div>
         </div>

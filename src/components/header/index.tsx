@@ -1,41 +1,38 @@
 import { Code2, ListVideo, Settings, Tags } from "lucide-react";
 import Link from "next/link";
+import { NavLink } from "./nav-link";
 
 export function Header() {
   return (
     <header className="py-4 mt-4 border-b border-zinc-800">
       <div className="container flex items-center gap-2">
-        <Link
+        <NavLink
           href="/uploads"
-          className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-100 font-medium text-xs gap-1.5 flex items-center transition hover:bg-zinc-900"
         >
           <ListVideo size={16} />
           Uploads
-        </Link>
+        </NavLink>
 
-        <Link
-          href="#"
-          className="px-3 py-1.5 rounded-full text-zinc-100 font-medium text-xs gap-1.5 flex items-center transition hover:bg-zinc-900"
+        <NavLink
+          href="/tags"
         >
           <Tags size={16} />
           Tags
-        </Link>
+        </NavLink>
 
-        <Link
+        <NavLink
           href="#"
-          className="px-3 py-1.5 rounded-full text-zinc-100 font-medium text-xs gap-1.5 flex items-center transition hover:bg-zinc-900"
         >
           <Settings size={16} />
           Settings
-        </Link>
+        </NavLink>
 
-        <Link
+        <NavLink
           href="#"
-          className="px-3 py-1.5 rounded-full text-zinc-100 font-medium text-xs gap-1.5 flex items-center transition hover:bg-zinc-900"
         >
           <Code2 size={16} />
           Developers
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

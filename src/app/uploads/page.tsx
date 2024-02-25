@@ -1,11 +1,29 @@
 import { Badge } from "@/components/badge";
 import { ButtonAdd } from "@/components/buttonAdd";
+import { FormTag } from "@/components/create-tag/form-tag";
 import { Header } from "@/components/header";
+import { Loading } from "@/components/loading";
 import { Navbar } from "@/components/navbar";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Table,
   TableBody,
@@ -16,7 +34,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, FileDown, MoreHorizontal, Search, Tags } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  FileDown,
+  MoreHorizontal,
+  Search,
+  Tags,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,10 +71,15 @@ export default function Uploads() {
               />
             </div>
 
-            <button className="px-3 py-1.5 text-zinc-500 border border-dashed border-zinc-700 bg-zinc-900/20 flex items-center gap-1.5 rounded-full transition hover:bg-zinc-900">
-              <Tags size={16} />
-              Tags
-            </button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="px-3 py-1.5 text-zinc-500 border border-dashed border-zinc-700 bg-zinc-900/20 flex items-center gap-1.5 rounded-full transition hover:bg-zinc-900">
+                  <Tags size={16} />
+                  Tags
+                </button>
+              </SheetTrigger>
+              <FormTag />
+            </Sheet>
           </div>
 
           <button className="px-2.5 py-1.5 flex items-center gap-1.5 rounded-[6px] border border-zinc-800 bg-zinc-900 text-zinc-300 text-xs transition hover:bg-zinc-950">
@@ -138,8 +170,9 @@ export default function Uploads() {
                 <TableCell>90.73 MB</TableCell>
                 <TableCell>
                   <div className="flex">
-                    <div className="px-2 py-1 bg-yellow-950 rounded-full text-yellow-400 font-semibold text-[0.625rem]">
-                    PROCESSING
+                    <div className="px-2 py-1 bg-yellow-950 rounded-full text-yellow-400 font-semibold text-[0.625rem] flex items-center gap-1">
+                      PROCESSING
+                      <Loading size="2" />
                     </div>
                   </div>
                 </TableCell>
