@@ -6,6 +6,8 @@ import { Header } from "@/components/header";
 import { Navbar } from "@/components/navbar";
 import { Label } from "@/components/ui/label";
 import { FolderSearch } from "lucide-react";
+import { CreateUploadEmpty } from "@/components/upload/create-upload-empty";
+import { CreateUpload } from "@/components/upload/create-upload";
 
 interface Video {
   name: string;
@@ -16,8 +18,6 @@ export default function Create() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(function () {})
 
   function selectFiles() {
     if (fileInputRef.current) {
@@ -31,7 +31,6 @@ export default function Create() {
       for (let index = 0; index < files.length; index++) {
         if (files[index].type.split("/")[0] !== "image") continue;
         if (!videos.some((e: Video) => e.name === files[index].name)) {
-          console.log(files.length)
           setVideos((prevVideos: Video[]) => [
             ...prevVideos,
             {
@@ -48,18 +47,10 @@ export default function Create() {
     event.preventDefault();
     if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
       const isFile = event.dataTransfer.items[0].kind === 'file';
-      console.log(isFile)
-      console.log(videos)
       if (isFile) {
         setIsDragging(true);
       }
     }
-  }
-
-  function onDragOver(event: React.DragEvent<HTMLDivElement>) {
-    event.preventDefault();
-    setIsDragging(true);
-    event.dataTransfer.dropEffect = "copy";
   }
 
   function onDragLeave(event: React.DragEvent<HTMLDivElement>) {
@@ -92,40 +83,25 @@ export default function Create() {
       <Navbar />
       <Header />
 
-      <div 
-      onDragEnter={onDragEnter}
-      onDragLeave={onDragLeave}
-      onDrop={onDrop}
-      className={`flex items-center justify-center p-6 border border-dashed border-zinc-800 my-60 mx-auto w-[32.5rem] h-52 rounded-[8px] ${isDragging ? 'border-teal-500' : 'border-zinc-800'}`}>
-        <div className="flex flex-col gap-4">
-          <input
-            type="file"
-            hidden
-            name="file"
-            id="file"
-            multiple
-            ref={fileInputRef}
-            onChange={onFileSelect}
-          />
-          {
-            isDragging ? (
-              <p className="text-sm text-teal-500">Drop the file here</p>
-            ): (
-              <>    
-                <p className="text-sm text-zinc-500">Drag videos here</p>
-                <Label
-                  htmlFor="file"
-                  className="text-xs font-medium text-zinc-50 px-2 py-1 flex items-center gap-1.5 rounded-xl bg-zinc-800 border-zinc-700 cursor-pointer"
-                  onClick={selectFiles}
-                >
-                  {" "}
-                  <FolderSearch size={16} /> Select manually
-                </Label>
-              </>
-            )
-          }
-        </div>
-      </div>
+      {/* <CreateUploadEmpty 
+        isDragging={isDragging}
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDrop={onDrop}
+        setVideos={selectFiles}
+        videos={videos}
+        onFileSelect={onFileSelect}
+      /> */}
+
+      <CreateUpload 
+        isDragging={isDragging}
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDrop={onDrop}
+        setVideos={selectFiles}
+        videos={videos}
+        onFileSelect={onFileSelect}
+      />
     </main>
   );
 }
