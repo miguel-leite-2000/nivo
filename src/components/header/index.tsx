@@ -6,7 +6,7 @@ export function Header() {
     <header className="py-4 mt-4 border-b border-zinc-800">
       <div className="container flex items-center gap-2">
         <Link
-          href="#"
+          href="/uploads"
           className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-100 font-medium text-xs gap-1.5 flex items-center transition hover:bg-zinc-900"
         >
           <ListVideo size={16} />

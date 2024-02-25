@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/table";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, FileDown, MoreHorizontal, Search, Tags } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Uploads() {
   return (
@@ -28,7 +29,9 @@ export default function Uploads() {
       <section className="container mt-8">
         <div className="flex items-center gap-3">
           <h1 className="text-xl text-zinc-50 font-bold">Uploads</h1>
-          <ButtonAdd>Upload video</ButtonAdd>
+          <Link href="/uploads/create">
+            <ButtonAdd>Upload video</ButtonAdd>
+          </Link>
         </div>
 
         <div className="mt-5 flex items-center justify-between">
